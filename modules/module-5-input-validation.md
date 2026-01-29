@@ -2,89 +2,44 @@
 
 ## Overview
 
-1. Input validation is the most critical security control for web applications
+Input validation is the most critical security control for web applications:
 
-  ![](../img/module-5-input-validation/2026-01-28-10-53-55.png)
+- API Gateway validates requests before invoking Lambda functions
+- Failed validation returns 400 Bad Request immediately
+- Invalid requests never reach your Lambda function
+- Validation results are logged in CloudWatch
+- This reduces unnecessary Lambda invocations and costs
+- Frees Lambda to focus on business logic rather than input validation
 
-2. API Gateway validates requests before invoking Lambda functions
+![](../img/module-5-input-validation/2026-01-28-10-53-55.png)
 
-3. Failed validation returns 400 Bad Request immediately
+## Requirements for Customization Request
 
-4. Invalid requests never reach your Lambda function
+Customization request must include:
+- **name**: Customization name (required, string)
+- **imageUrl**: URL for cape image (required, valid URL format)
+- **sock**: Sock type ID (required, numeric)
+- **horn**: Horn ID (required, numeric)
+- **glasses**: Glasses ID (required, numeric)
+- **cape**: Cape type ID (required, numeric)
+- **company**: Company ID (optional, numeric)
 
-5. Validation results are logged in CloudWatch
-
-6. This reduces unnecessary Lambda invocations and costs
-
-7. Frees Lambda to focus on business logic rather than input validation
-
-### Requirements for Customization Request
-
-8. Customization request must include:
-   - **name**: Customization name (required, string)
-   - **imageUrl**: URL for cape image (required, valid URL format)
-   - **sock**: Sock type ID (required, numeric)
-   - **horn**: Horn ID (required, numeric)
-   - **glasses**: Glasses ID (required, numeric)
-   - **cape**: Cape type ID (required, numeric)
-   - **company**: Company ID (optional, numeric)
-
-  ![](../img/module-5-input-validation/request-schema.png)
-
-1. Define JSON schema for API Gateway validation
-
-2.  Specify required fields in the schema
-
-3.  Add regex patterns for ID fields to enforce numeric values
-
-4.  Set URL format validation for imageUrl field
-
-13. Configure API Gateway to use the model for validation
-
-  ![](../img/module-5-input-validation/create-model.png)
-
-14. Attach the model to the POST /customizations endpoint
-
-15. Enable request validation on the endpoint
-
-  ![](../img/module-5-input-validation/enable-validation.png)
-
-### Test 1: Valid Request
-
-16. Open the API Client and create new partners
-
-17. Navigate to Module 5: Input Validation section
-
-18. Retrieve a valid partner token from new partners
-  ![](../img/module-5-input-validation/2026-01-28-10-56-14.png)
-
-19. Send invalid customization request:
-
-  ```json
-{ 
-  "name":"Orange-themed unicorn",
-  "imageUrl":"https://en.wikipedia.org/wiki/Orange_(fruit)#/media/File:Orange-Whole-%26-Split.jpg",
-  "sock":"1",
-  "horn":"2",
-  "glasses":"3",
-  "cape":"2); INSERT INTO Socks (NAME,PRICE) VALUES ('Bad color', 10000.00"
-}
-  ```
-
-20.  Verify request succeeds with 200 response
-    ![](../img/module-5-input-validation/2026-01-28-10-57-10.png)
-21.  Verify SQL injection statement is effected in database
-
-  ![](../img/module-5-input-validation/2026-01-28-10-59-54.png)
+![](../img/module-5-input-validation/request-schema.png)
 
 ## Module 5A: Create Model
 
 1. Open the [AWS API Gateway Console](https://console.aws.amazon.com/apigateway/home)
+
 2. Click on the **CustomizeUnicorns** API
+
 3. Click on **Models** in the left navigation
+
 4. Click **Create model** button
+
 5. Enter model name: `CustomizationPost`
+
 6. Set Content type: `application/json`
+
 7. In the Model schema field, paste the following JSON schema:
 
   ```json
@@ -131,6 +86,7 @@
   ![](../img/module-5-input-validation/2026-01-28-11-41-49.png)
 
 8. Click **Create** button
+
 9. Click on **Resources** in the left navigation
 
 10. Expand **/customizations** and click on **POST** method
@@ -148,6 +104,50 @@
 15. Click **Request body** to expand that section
 
 16. Click **Add model** button
+
+## Module 5B: Test Valid Request
+
+1. Open the API Client and navigate to the **Module 5: Input Validation** section
+
+2. Click the **Get Access Token** button to retrieve a fresh token
+
+3. Send a valid customization request:
+
+  ```json
+{ 
+  "name":"Orange-themed unicorn",
+  "imageUrl":"https://en.wikipedia.org/wiki/Orange_(fruit)#/media/File:Orange-Whole-%26-Split.jpg",
+  "sock":"1",
+  "horn":"2",
+  "glasses":"3",
+  "cape":"2"
+}
+  ```
+
+  ![](../img/module-5-input-validation/2026-01-28-10-56-14.png)
+
+4. Verify request succeeds with 200 response
+
+  ![](../img/module-5-input-validation/2026-01-28-10-57-10.png)
+
+## Module 5C: Test Invalid Request
+
+1. Try sending an invalid request with SQL injection:
+
+  ```json
+{ 
+  "name":"Orange-themed unicorn",
+  "imageUrl":"https://en.wikipedia.org/wiki/Orange_(fruit)#/media/File:Orange-Whole-%26-Split.jpg",
+  "sock":"1",
+  "horn":"2",
+  "glasses":"3",
+  "cape":"2); INSERT INTO Socks (NAME,PRICE) VALUES ('Bad color', 10000.00"
+}
+  ```
+
+2. Verify request is rejected with validation error
+
+  ![](../img/module-5-input-validation/2026-01-28-10-59-54.png)
 
 17. Set Content type: `application/json`
 

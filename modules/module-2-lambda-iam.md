@@ -41,17 +41,15 @@ Every Lambda function has an IAM role called an **execution role**. In this role
 
   ![](../img/module-2-lambda-iam/2026-01-28-02-19-18.png)
 
-1. Go to **Configuration > Permissions** tab. Click on the **Execution role name** to open the IAM role
+4. Go to **Configuration > Permissions** tab. Click on the **Execution role name** to open the IAM role
 
-2. Review the attached permissions (note: currently has AdministratorAccess)
+5. Review the attached permissions (note: currently has AdministratorAccess)
 
   ![](../img/module-2-lambda-iam/2026-01-28-02-20-32.png)
 
-7. Scroll down to "Generate policy based on CloudTrail events" and click **Generate Policy**
+6. Scroll down to "Generate policy based on CloudTrail events" and click **Generate Policy**
 
-  
-
-8. On the Generate policy screen:
+7. On the Generate policy screen:
    - **Time period**: Select "Last 1 day"
    - **Region**: Select "US East (N. Virginia)"
    - **CloudTrail Trail**: Select "Serverless-Security-Workshop-Trail"
@@ -59,54 +57,55 @@ Every Lambda function has an IAM role called an **execution role**. In this role
 
   ![](../img/module-2-lambda-iam/2026-01-28-02-22-28.png)
 
-9. Click **Generate Policy** and wait for completion
-10. Wait for the status to show **Success** (may take a few minutes)
+8. Click **Generate Policy** and wait for completion
+
+9. Wait for the status to show **Success** (may take a few minutes)
 
   ![](../img/module-2-lambda-iam/2026-01-28-02-30-17.png)
 
-11. Click **View generated policy**
+10. Click **View generated policy**
 
-12. Review the generated policy showing DynamoDB and Secrets Manager actions
+11. Review the generated policy showing DynamoDB and Secrets Manager actions
 
-13. Select the appropriate actions:
+12. Select the appropriate actions:
     - **DynamoDB**: Select `PutItem`
     - **Secrets Manager**: Select `GetSecretValue` (if Module 4 was completed)
 
   ![](../img/module-2-lambda-iam/2026-01-28-03-59-02.png)
 
-14. Click **Next** to proceed to customization
+13. Click **Next** to proceed to customization
 
     ![](../img/module-2/2a-next-actions.png)
 
-15. On the Customize Permissions page, remove unnecessary policy statements (keep only DynamoDB and Secrets Manager)
+14. On the Customize Permissions page, remove unnecessary policy statements (keep only DynamoDB and Secrets Manager)
 
     ![](../img/module-2/2a-customize-permissions.png)
 
-16. Set the Resource ARN for DynamoDB table and Secrets Manager secret
+15. Set the Resource ARN for DynamoDB table and Secrets Manager secret
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-01-52.png)
   ![](../img/module-2-lambda-iam/2026-01-28-04-03-52.png)
   ![](../img/module-2-lambda-iam/2026-01-28-04-05-06.png)
 
-17. Click **Next** to continue
+16. Click **Next** to continue
 
-18. Enter policy name: `CustomUnicornAnalyticsScopedDownPolicy`
+17. Enter policy name: `CustomUnicornAnalyticsScopedDownPolicy`
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-06-15.png)
 
-19. Click **Create and attach policy**
+18. Click **Create and attach policy**
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-06-43.png)
 
-20. Back on the IAM role page, remove the **AdministratorAccess** policy by clicking **Remove**
+19. Back on the IAM role page, remove the **AdministratorAccess** policy by clicking **Remove**
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-07-45.png)
 
-21. Verify in the Lambda console that the execution role is updated
+20. Verify in the Lambda console that the execution role is updated
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-09-10.png)
 
-22. Navigate to the [DynamoDB Console](https://console.aws.amazon.com/dynamodb/home) and verify new records are being inserted into `CustomizeUnicorns-CustomizationDemandAnalytics` table
+21. Navigate to the [DynamoDB Console](https://console.aws.amazon.com/dynamodb/home) and verify new records are being inserted into `CustomizeUnicorns-CustomizationDemandAnalytics` table
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-10-09.png)
 
@@ -119,7 +118,9 @@ Every Lambda function has an IAM role called an **execution role**. In this role
 #### Part 1: Explore the Infrastructure
 
 1. Open the [AWS IAM Console](https://console.aws.amazon.com/iam/home)
+
 2. Click on **Users** under Access Management in the left navigation
+
 3. Search for and open **serverless-dev-user**
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-21-33.png)
@@ -128,17 +129,17 @@ Every Lambda function has an IAM role called an **execution role**. In this role
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-22-20.png)
 
-1. Click on **Roles** in the left navigation. Search for **ServerlessABACDemoRole** and open it
+5. Click on **Roles** in the left navigation. Search for **ServerlessABACDemoRole** and open it
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-23-19.png)
 
-2. Review the attached managed policies:
+6. Review the attached managed policies:
    - **ServerlessABACDemoPolicyLambdaInvoke** (GetFunction, InvokeFunction)
    - **ServerlessABACDemoPolicyListLambdaIAM** (List and Get permissions)
 
   ![](../img/module-2-lambda-iam/2026-01-28-04-24-12.png)
 
-3. Copy the "Link to switch roles in console" URL from the top right (for later use)
+7. Copy the "Link to switch roles in console" URL from the top right (for later use)
 
    ![](../img/module-2/2b-copy-switch-role-url.png)
 

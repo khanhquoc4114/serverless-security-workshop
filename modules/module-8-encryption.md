@@ -3,7 +3,7 @@
 ## Overview
 Although traffic within your VPC is private, some regulations or compliance requirements mandate encryption of data in transit.
 
-## Part 1: Enable SSL in-Transit for DB Connections
+## Module 8A: Enable SSL in-Transit for DB Connections
 
 1. Open a terminal and navigate to the app directory
 
@@ -28,9 +28,9 @@ Although traffic within your VPC is private, some regulations or compliance requ
 
 4. Open `dbUtils.js` file in your text editor
 
-2. Locate the import statements at the top of the file
+5. Locate the import statements at the top of the file
 
-3. Add the following import after the mysql import:
+6. Add the following import after the mysql import:
 
   ```javascript
   import fs from 'fs';
@@ -50,15 +50,15 @@ Although traffic within your VPC is private, some regulations or compliance requ
 
   ![](../img/module-8-encryption/2026-01-28-09-55-39.png)
 
-9.  Save the file
+9. Save the file
 
-2.  Navigate to the src directory
+10. Navigate to the src directory
 
   ```bash
   cd /Workshop/src
   ```
 
-11.  Package and deploy the CloudFormation template and  wait for the deployment to complete
+11. Package and deploy the CloudFormation template and wait for the deployment to complete
 
   ```bash
   aws cloudformation package --output-template-file packaged.yaml --template-file template.yaml --s3-bucket $DeploymentS3Bucket --s3-prefix securityworkshop --region $REGION && aws cloudformation deploy --template-file packaged.yaml --stack-name CustomizeUnicorns --region $REGION --capabilities CAPABILITY_IAM --parameter-overrides InitResourceStack=Secure-Serverless
@@ -66,24 +66,25 @@ Although traffic within your VPC is private, some regulations or compliance requ
 
   ![](../img/module-8-encryption/2026-01-28-10-05-24.png)
 
-12.  Verify the stack update was successful
+12. Verify the stack update was successful
+
    ![](../img/module-8-encryption/2026-01-28-10-06-42.png)
-13.  Test database connectivity by invoking an API endpoint to confirm SSL connection works
+
+13. Test database connectivity by invoking an API endpoint to confirm SSL connection works
 
   ![](../img/module-8-encryption/2026-01-28-10-11-03.png)
 
-## Part 2: Optional - Require SSL for Database Users
+## Module 8B: Optional - Require SSL for Database Users
 
-16. Get password 
+1. Get password
 
-``` bash
+  ```bash
+  SECRET_NAME=$(aws cloudformation describe-stacks --stack-name $stack_name --query 'Stacks[].Outputs[?OutputKey==`SecretArn`].OutputValue' --output text --region us-east-1 | awk -F: '{print $NF}')
 
-SECRET_NAME=$(aws cloudformation describe-stacks --stack-name $stack_name --query 'Stacks[].Outputs[?OutputKey==`SecretArn`].OutputValue' --output text --region us-east-1 | awk -F: '{print $NF}')
+  aws secretsmanager get-secret-value --secret-id $SECRET_NAME --query SecretString --output text --region us-east-1
+  ```
 
-aws secretsmanager get-secret-value --secret-id $SECRET_NAME --query SecretString --output text --region us-east-1
-```
-
-17. Open a terminal to connect to the MySQL database
+2. Open a terminal to connect to the MySQL database
 
   ```bash
   mysql -h 127.0.0.1 -P 3307 -u admin -p<Password>
@@ -91,45 +92,51 @@ aws secretsmanager get-secret-value --secret-id $SECRET_NAME --query SecretStrin
 
   ![](../img/module-8-encryption/2026-01-29-19-42-54.png)
 
+  > **Note:** If you have gone through Module 4 and your DB password may have been rotated by Secrets Manager, you can retrieve the new password by going to Secrets Manager and clicking the **Retrieve secret value** button.
 
-1.   Check your Aurora MySQL version in the RDS console
+3. Check your Aurora MySQL version in the RDS console
+
    ![](../img/module-8-encryption/2026-01-28-10-22-30.png)
 
-2.  Create 'encrypted_user' for next step
-``` sql
-CREATE USER 'encrypted_user'@'%' IDENTIFIED BY '>b&>d#3C~fLs)DpIR)rOy3$5?lEqlq9b';
-```
+4. Create 'encrypted_user' for next step
 
-1.  For my MySQL version 8.0, require SSL connections with:
+  ```sql
+  CREATE USER 'encrypted_user'@'%' IDENTIFIED BY '>b&>d#3C~fLs)DpIR)rOy3$5?lEqlq9b';
+  ```
+
+5. For MySQL version 8.0, require SSL connections with:
 
   ```sql
   ALTER USER 'encrypted_user'@'%' REQUIRE SSL;
   ```
-20.  For MySQL 5.6 and earlier, use instead:
+
+6. For MySQL 5.6 and earlier, use instead:
 
   ```sql
   GRANT USAGE ON *.* TO 'encrypted_user'@'%' REQUIRE SSL;
   ```
+
    ![](../img/module-8-encryption/2026-01-28-10-39-42.png)
-21.  Verify the user has SSL requirement enabled
+
+7. Verify the user has SSL requirement enabled
 
   ```sql
   SHOW CREATE USER 'encrypted_user'@'%';
   ```
 
-22.  Exit the MySQL connection
+8. Exit the MySQL connection
 
   ```sql
   EXIT;
   ```
 
-## Part 3: Encryption at Rest
+## Module 8C: Encryption at Rest
 
-26. Note that data in the RDS Aurora MySQL database is **not encrypted at rest** in this workshop
+1. Note that data in the RDS Aurora MySQL database is **not encrypted at rest** in this workshop
 
-27. Understand that encryption can only be enabled when creating a new RDS instance, not on existing instances
+2. Understand that encryption can only be enabled when creating a new RDS instance, not on existing instances
 
-28. To add encryption to an existing unencrypted database, you must:
+3. To add encryption to an existing unencrypted database, you must:
 
   - Create a snapshot of the existing DB instance
   - Create an encrypted copy of that snapshot
@@ -137,7 +144,7 @@ CREATE USER 'encrypted_user'@'%' IDENTIFIED BY '>b&>d#3C~fLs)DpIR)rOy3$5?lEqlq9b
 
   ![](../img/module-8-encryption/2026-01-28-05-35-45.png)
 
-29. For new deployments, enable encryption at creation time:
+4. For new deployments, enable encryption at creation time:
 
   - Select "Enable encryption" during database creation
   - Choose AWS managed key or customer managed CMK
@@ -145,7 +152,7 @@ CREATE USER 'encrypted_user'@'%' IDENTIFIED BY '>b&>d#3C~fLs)DpIR)rOy3$5?lEqlq9b
 
   ![](../img/module-8-encryption/2026-01-28-05-36-00.png)
 
-30. Reference the AWS Prescriptive Guidance for detailed encryption migration steps
+5. Reference the AWS Prescriptive Guidance for detailed encryption migration steps
 
   ![](../img/module-8-encryption/2026-01-28-05-36-15.png)
 
