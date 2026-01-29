@@ -1,3 +1,7 @@
+**Authors:** 
+- Pham Nguyen Hai Anh 
+- Nguyen Dang Khanh Quoc
+
 # AWS Serverless Security Workshop
 
 ## Overview
@@ -12,7 +16,7 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - **Logging & Monitoring**: Distributed tracing and security monitoring
 
 **Workshop Details:**
-- **Duration**: Approximately 3 hours
+- **Duration**: Approximately 6 hours
 - **Intended Audience**: Serverless developers and security engineers
 - **Skill Level**: Intermediate
 - **Prerequisites**: Basic AWS knowledge, familiarity with serverless concepts
