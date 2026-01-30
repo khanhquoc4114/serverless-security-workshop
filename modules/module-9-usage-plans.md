@@ -6,28 +6,8 @@ You can leverage Usage Plans with Amazon API Gateway to set limits on request ra
 Usage Plans protect your API from being abused by:
 - Misbehaving clients
 - Buggy applications
-- Malicious actors attempting denial-of-service (DoS) attacks
+- Malicious actors attempting denial-of-service (DoS) attack
 
-## How It Works
-
-### API Keys for Tracking
-API Gateway uses **API Keys** to keep track of different consumers of your API.
-
-In your use case:
-- Each partner company gets unique API keys
-- Requests are tallied separately per company
-- Rate limits applied per API key
-
-### Benefits
-- Protect API from abuse
-- Provide fair resource allocation
-- Prevent resource exhaustion
-- Enable usage-based billing if needed
-- Track usage per customer
-
-## Module Sections
-
-The module is divided into practical steps:
 
 ---
 

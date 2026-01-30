@@ -5,26 +5,6 @@ Lambda functions are an important part of serverless architecture. You can use A
 
 Every Lambda function has an IAM role called an **execution role**. In this role, you can attach a policy that defines the permissions your function needs to access other AWS services and resources.
 
-## Key Concepts
-
-### Execution Role
-- Attached to every Lambda function
-- Defines what the function can access
-- Contains identity-based policies
-- Critical for security
-
-### Resource-Based Policies
-- Also known as function policies
-- Controls who can invoke your Lambda function
-- When AWS service calls your Lambda, only resource-based policy is considered
-- When users call Lambda, both identity-based and resource-based policies apply
-
-### Least Privilege Permissions
-- Grant only the permissions required to perform a task
-- Define actions on specific resources under specific conditions
-- Continuous cycle: start broad, then reduce to least privilege as requirements mature
-- Focus on fine-grained permissions as use cases mature
-
 ## Module Sections
 
 ### Module 2A: Scoped Down Permission using IAM Access Analyzer

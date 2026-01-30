@@ -21,10 +21,6 @@ For known software vulnerabilities and unintended network exposure.
 
 For more information on Amazon Inspector services, check out the [Amazon Inspector Documentation](https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html).
 
-### Module Goal
-
-In this module, you will be tasked with reviewing findings from Amazon Inspector and updating the code to reflect a more secure way to handle actions in Amazon Lambda Functions.
-
 ---
 
 ## Step 1: Setup Amazon Inspector
