@@ -63,8 +63,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - API Gateway configuration
 - VS Code Server environment setup
 
-**Expected Duration**: 30-45 minutes
-
 **Important Note**: The starter application is intentionally NOT following many security best practices. You will identify security gaps and implement protection measures in subsequent modules.
 
 ---
@@ -90,8 +88,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - JWT token validation
 - Custom authorizers
 
-**Expected Duration**: 60-90 minutes
-
 ---
 
 ### Module 2: Lambda IAM
@@ -113,8 +109,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Tag-based access control
 - Service control policies
 
-**Expected Duration**: 45-60 minutes
-
 ---
 
 ### Module 3: Amazon Verified Permissions
@@ -135,8 +129,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Policy-based access control (PBAC)
 - Separation of concerns
 - Zero Trust architecture
-
-**Expected Duration**: 45-60 minutes
 
 **Prerequisites**: Complete Modules 0 and 1 first
 
@@ -163,8 +155,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Secret versioning
 - Least privilege access to secrets
 
-**Expected Duration**: 45-60 minutes
-
 ---
 
 ### Module 5: Input Validation
@@ -185,8 +175,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Fail-fast validation
 - Schema-driven validation
 - Defense in depth
-
-**Expected Duration**: 45-60 minutes
 
 ---
 
@@ -209,8 +197,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - CVE database integration
 - Automated vulnerability scanning
 
-**Expected Duration**: 30-45 minutes
-
 ---
 
 ### Module 7: Amazon Inspector
@@ -231,8 +217,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Code vulnerability detection
 - Finding severity classification
 - Remediation workflows
-
-**Expected Duration**: 45-60 minutes
 
 ---
 
@@ -257,8 +241,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Certificate validation
 - Man-in-the-middle attack prevention
 
-**Expected Duration**: 30-45 minutes
-
 ---
 
 ## Infrastructure Security
@@ -282,8 +264,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - API monetization
 - DDoS protection
 
-**Expected Duration**: 45-60 minutes
-
 ---
 
 ### Module 10: WAF
@@ -304,8 +284,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - OWASP Top 10 protections
 - Rate-based rules
 - IP reputation lists
-
-**Expected Duration**: 45-60 minutes
 
 ---
 
@@ -330,8 +308,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - Anomaly detection
 - Root cause analysis
 
-**Expected Duration**: 45-60 minutes
-
 ---
 
 ## Resource Cleanup
@@ -352,8 +328,6 @@ Learn techniques to secure a serverless application built with AWS Lambda, Amazo
 - S3 buckets
 - EC2 instances
 - WAF ACLs
-
-**Expected Duration**: 15-30 minutes
 
 ---
 
