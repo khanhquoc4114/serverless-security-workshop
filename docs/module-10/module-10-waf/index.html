@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-module-10/module-10-waf" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Module 10: WAF | Serverless Security Workshop</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-docusaurus-site.example.com/img/aws-logo.png"><meta data-rh="true" name="twitter:image" content="https://your-docusaurus-site.example.com/img/aws-logo.png"><meta data-rh="true" property="og:url" content="https://your-docusaurus-site.example.com/docs/module-10/module-10-waf"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Module 10: WAF | Serverless Security Workshop"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/img/aws-logo.ico"><link data-rh="true" rel="canonical" href="https://your-docusaurus-site.example.com/docs/module-10/module-10-waf"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/docs/module-10/module-10-waf" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-docusaurus-site.example.com/docs/module-10/module-10-waf" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Module 10: WAF","item":"https://your-docusaurus-site.example.com/docs/module-10/module-10-waf"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Serverless Security Workshop RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Serverless Security Workshop Atom Feed"><link rel="stylesheet" href="/assets/css/styles.e9f0cf4c.css">
+<script src="/assets/js/runtime~main.93d102ee.js" defer="defer"></script>
+<script src="/assets/js/main.f58791e0.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/aws-logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/aws-logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/aws-logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Serverless Security Workshop</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Modules</a><a class="navbar__item navbar__link" href="/contributor">Contributors</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/khanhquoc4114/serverless-security-workshop" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="Serverless Security Workshop" class="linkLabel_WmDU">Serverless Security Workshop</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-00/module-0-initial-setup"><span title="Module 0: Initial Setup" class="categoryLinkLabel_W154">Module 0: Initial Setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-01/module-1-authentication-authorization"><span title="Module 1: Add Authentication and Authorization" class="categoryLinkLabel_W154">Module 1: Add Authentication and Authorization</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-02/module-2-lambda-iam"><span title="Module 2: Lambda IAM" class="categoryLinkLabel_W154">Module 2: Lambda IAM</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-03/module-3-verified-permissions"><span title="Module 3: Amazon Verified Permissions" class="categoryLinkLabel_W154">Module 3: Amazon Verified Permissions</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-04/module-4-secrets"><span title="Module 4: Secrets" class="categoryLinkLabel_W154">Module 4: Secrets</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-05/module-5-input-validation"><span title="Module 5: Input validation on API Gateway" class="categoryLinkLabel_W154">Module 5: Input validation on API Gateway</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-06/module-6-dependency-vulnerability"><span title="Module 6: Dependency Vulnerability" class="categoryLinkLabel_W154">Module 6: Dependency Vulnerability</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-07/module-7-amazon-inspector"><span title="Module 7: Amazon Inspector" class="categoryLinkLabel_W154">Module 7: Amazon Inspector</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-08/module-8-encryption"><span title="Module 8: Encryption in Transit" class="categoryLinkLabel_W154">Module 8: Encryption in Transit</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-09/module-9-usage-plans"><span title="Module 9: Usage Plans" class="categoryLinkLabel_W154">Module 9: Usage Plans</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/module-10/module-10-waf"><span title="Module 10: WAF" class="categoryLinkLabel_W154">Module 10: WAF</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/module-10/module-10-waf"><span title="Module 10: WAF" class="linkLabel_WmDU">Module 10: WAF</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/module-12/module-12-xray"><span title="Module 12: X-Ray" class="categoryLinkLabel_W154">Module 12: X-Ray</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/clean-up-resources/resource-cleanup"><span title="Clean up resources" class="categoryLinkLabel_W154">Clean up resources</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 10: WAF</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Module 10: WAF</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Module 10: WAF</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>AWS WAF (Web Application Firewall) is a web application firewall that helps protect your web applications from common web exploits that could:</p>
+<ul>
+<li class="">Affect application availability</li>
+<li class="">Compromise security</li>
+<li class="">Consume excessive resources</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional-module-10-attack-your-api-with-sql-injection">(Optional) Module 10: Attack Your API with SQL Injection!<a href="#optional-module-10-attack-your-api-with-sql-injection" class="hash-link" aria-label="Direct link to (Optional) Module 10: Attack Your API with SQL Injection!" title="Direct link to (Optional) Module 10: Attack Your API with SQL Injection!" translate="no">​</a></h2>
+<blockquote>
+<p><strong>Note:</strong> If you have completed <strong>Module 5: Input validation on API Gateway</strong>, your API now has some basic input validation in place for the JSON request body. However, it turns out our application is still vulnerable to SQL injection attacks as part of the request URI. This optional section shows how you can perform the attack.</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="perform-sql-injection-attack">Perform SQL Injection Attack<a href="#perform-sql-injection-attack" class="hash-link" aria-label="Direct link to Perform SQL Injection Attack" title="Direct link to Perform SQL Injection Attack" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p>In the <strong>API Client</strong>, scroll down and click the <strong>Module 10: WAF</strong> tab to expand the section</p>
+</li>
+<li class="">
+<p>Click the <strong>Get Access Token</strong> button to retrieve a fresh token</p>
+</li>
+<li class="">
+<p>Update the URL to include the SQL injection payload after the customization ID:</p>
+</li>
+</ol>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">{{base_url}}/customizations/1; drop table Custom_Unicorns;</span><br></span></code></pre></div></div>
+<ol start="4">
+<li class="">Click <strong>Send</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-13-27-15-bb00c757234907a84bbb6f3dbefd1247.png" width="974" height="444" class="img_ev3q"></p>
+<ol start="5">
+<li class="">You may get an <strong>&quot;Error querying&quot;</strong> response back because the SQL injection messed up the database query so not all of it succeeded</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> You can check the CloudWatch Logs for the <code>CustomizeUnicorns-CustomizeUnicornFunction</code> Lambda function to see what SQL queries got executed</p>
+</blockquote>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-13-26-59-6646e1aff148b7f4a5065441d25e89fe.png" width="1421" height="134" class="img_ev3q"></p>
+<ol start="6">
+<li class="">
+<p>However, the injected query to drop the <code>Custom_Unicorns</code> table should have succeeded</p>
+</li>
+<li class="">
+<p>To recover from this, go to your VS Code Server terminal tab</p>
+</li>
+<li class="">
+<p>Connect to the database again through the mysql command line:</p>
+</li>
+</ol>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cd /Workshop/src</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mysql -h 127.0.0.1 -P 3307 -u admin -p&#x27;&lt;Password&gt;&#x27; --ssl-mode=REQUIRED</span><br></span></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-13-31-24-ab256ecfb8a836d931ad064b95597df0.png" width="838" height="265" class="img_ev3q"></p>
+<blockquote>
+<p><strong>Note:</strong> If you have gone through Module 4 and your DB password may have been rotated by Secrets Manager, you can retrieve the new password by going to Secrets Manager and clicking the <strong>Retrieve secret value</strong> button.</p>
+</blockquote>
+<ol start="9">
+<li class="">In the MySQL CLI prompt, run the <code>show tables</code> command to verify the <code>Custom_Unicorns</code> table is gone:</li>
+</ol>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">use</span><span class="token plain"> unicorn_customization</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">show</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">tables</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAg8AAAEtCAIAAAAAyxRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACWlSURBVHhe7d0/jqNK9/Dx87z6LcKJOyHzApx0gkTgBRBaulEPATuwrjxBE3gHBL5OHbIAB0joSpOwAGdIV+OEJUz4Bvw1VFG4bXe7u7+fZLrLQBVlmuMqPHX+9+fPHwEAYND/6xYAANBDtAAAmBEtAABm7x0t8shzCkHafe1zSAPHcbyoW/wt3OPc73FMALf33tFi4m7jON77VvcF3F8aOF6Ud0vfy8fWDuBK7x0t1NLg8ww15us4jrdut/hbuMe53+OYAG5PHy3SwAmiyHMcx4vS8l9Jg7MppNav9QxTe4NW4eDnyvnaP63GTEdEXnP0vPWLofbBUKQ8ZuR5UZ4G5/trp9HqDZvTPCuqt/KivD5IcQxlRVq9ipSN73dIUekqkSxcnlfVa6fyfdece/v9bb/SlLf27deuPKaiSUO9lAbd3QHchT5aiEgSHl/ijZ2Fq+Lfg8wXtiSH6m8zPSRiL+YieeSF001cWs+LVwOnLtzYZwfuc7fxZhq+7e/eWLt/Wg3FKrUsXO5m+ziOY99KdlGunUZLA2d18vdl9Vt3IiKR1xT5EtanlYXL5fGlOEiyK26FiorUVBUp9TukaPnGFqvefz3XtrP3vke5+tzdbVXJxhZ7U3R9HgXyWhb7EnpRrqtdeUx1k8b3EoD7GIwWll/8/Vv+j+IWHOXzH75VhYv0kNSvSCuIiIhIHu2S6v4xznwd74shxhtuBZ3aJT20andf7Ozw6+z1EexNeUN+XljZ8Xf35Uq0Syz/9ezWnQZhZr9URe5r02Vi+eWN8nlhZcei8O0VDeh2iIqqnaJ6303SYCV1b0/cdd3I4TNSUDVpsJfm6+YTAoA7GowWKpPnRfkHnB6S6u964m43drIqJw/ecLNvy8J/zDe6NkXt+ekkZYlTTILcS3rMZDrt3cKtmfIGZi2ey58m7vaym5ymIhVFh+ho2nmRs1hxNsHkLMPsbNMxbtEkADd3cbSQiVuEi/SQ2Ivm73q+LqckpuHScIfSSANnWUygXHQXFdHUbtdzMfEdn6POZ8qvd1XjBhGR38fLb5l9moo0VB2icn07u7EiDZahVFNJ3Vm7Ma5vEoA7uDxaiLgvdrLzdqdyvuJcdVObTKfVbEgeecYP98Wc/JhAcTrlUt6U+neSunZ3YSWr0Q9BBo9p8Nyvab6wpZlbj3btCbu3U1QkYmr8WYx5mllnM3KqdjavjpFH3nmsKJRjoDz62WpSt3YlVZO6Rz/Df9cA3slbooXMF3aWST2pcv7dmHBaTDDP19VsyPL4Uj/lLrZchlk5UVTc/dJgJZsxH//dV1+K79XsZpvqc6uqdnG3sX9q5qIGPl8rj6mkbPzE3e5bNXlRLjJfx5tp9f2fuklXUlWkbryyQ4oj+BKWLwTpRe1Unnv0s/69OeYP3yqLlsdFqz97tSuPeUGTRKpwmB30by+A2/jfm9agTQNnN9ub/pBbLt4BGKcclY74qAHgGm8ZW6TBqn6+DXyYNHAcQgXwTi4bW6SBs0pErIv/PhlbjFb2cZe9GfFMBwDu5bJoAQD4nt4yEwUA+G6IFgAAM6IFAMDsjtGivTxqTbPsKADgob0lWlyT1ka57CgA4MG9JVoAAL6by6KFLq3N2WoTZ4v2KDPYKDS7tzZsrWDR3p0EOADw3i6LFrq0Nv0EOMX2yarMYLOxlQvilZSZi/opfQAAH+WyaKGjS4BTZ7A5z7nXoc9cpN6FBDgA8N5uEy3MCXCe9NkZNJmLLkjpAwC4s5tEixEJcH4fs6GcaOrMRWNT+gAA7uwt0UKZ1kaZAKcW7ZImyWiHOXNRJ20cCXAA4L29cVXByHPKoGBv4vU8j7xqAsr2/VN4fInX82YbEcsvF6BtF9a7d8qLjc+2PF+BNfKcMKsPCQC4uzdGi49FAhwAeGefLVoU2R8uT7ABALjGZ4sWAICP8Jan3ACA74ZoAQAwI1oAAMyIFgAAs3eKFucpMT7sv9fdLUHTJWdUL8v7AQuaXNLO8T7yjEZ577f4Sjftz7td8xe7Ji9O24c0HoZo0Vow/NHfmGsuxPdN0JQGq6Ra5+SO/7vwmg650Dud0TUueovfseuUxvbnNe28qEMezadu/Kc2FC1a6zdt7KRcSPwW5uvWYlBfwugzyk8nsRf6BbPubHQ7x/vgM3o3d+g6pe/Sn/h8DNGicrZSkyFzUWu0XhdWC8uqR5GR50V5P29SMyB3HO2o/J0TNPVdckYiv4+9VbRap1m1s/jYWB85SEXSwAmiyHMcx4vS8t9i485p6jpE2U5l7drGK735jAacHaB413vH1HTIRY3vvMXv23WK3UXdn126dvYvhsrIJnU7ZEC/It2511vWNwGtMe+7RnvCLS9+ufoK0W3ZPXdNRbr+bAoHa39Ef/T2fz3//e+fP3/+/Plv/9dz+fO/f1c//fmz/+v5r/1/f/78+W//9/6/Zq+isL3lv3+XhYX/mkOXuzxXryt2b9Wu0zm+rkntitrN6zdJeZoDjGf03/6v546//+0cvD7Pf/9uNvhv/9fzX/ui6O9/2//+tf9PfZrKDin029mvvd/4evu2a89I59+/69primNqOuT6t/gduk65u64/dfrtVF4M13dIn7GiunDgJtA18n2v9N+O+rfypRFXyPBpKrdUnLumImV/dpr9uRjGFmV+ieVhsS+W9VNnLlJkQ8qjXWtLozpvUpVMKT0k1YB84i4sOZ1UIws9RZNEbpCgabTOGRWTrfHGbqb31nNJgzCzX6qGuq++VTfJ8osenzwvrOxYlBQtsvwfdbfqTnMUfe29t0PhyjPS9LxEu8TyX8/m61XHFE2HdN/i06n1Stt1b7GqSeO7Trn7b2V/XkJ3Mdz8mjdW9IabwMj3XdN4DdMVMvQeiSi3VJ97ryJ3ou/PS8/iYRiiRXHZ+lZ2+JVLOamqyFxkzoZ0sfnMqno1jw6ZtXhuX0cjGJt0eYKmu9Ck/WgWeJ+423jdebVhPM1hmtqvojlm54yU24ikx6xa/b5Nc0wzXVi6/i1+c5MKV+6uZLwYbnXNGyu62K3f9/sZee6a/vzUSd4M0aLgvthZ+E/1V9fPXDQiG9LlptNqaLMMpfOhw2xEk96UoOn22rezEXPWbe5kxGkOu6J2rauO2cllUnnzMe/3Fr+5SYUrd1cYcTHc5pofUdHFbv2+38tF567uz8+b5G1UtJD52reSXZQPZC7qZkOaTKfN2MAb/qSiUIxhm342xIp3T9B0I/OFLcmuumKiXdIZMo+hPE1lh3Tdovauq4/53O961THbr2ukweotb/F7dN2Vu4vo2qm8GGo3vOaHKypdchMY+b4P9FI5WZ0GQx/5b2HMuUdi7E9NgHxg/9ct0HBf7HD1M3reuttYPMdxynLL32/d+Q/fWq6cRETE9n0rPIrIfL2xnaLQ3uz93U+R4vsAVQ+vnEQ6aY4aE/fFDstDilQVaWPGxN36B8dxQiki+lrZJCmexBQHVSVoapqkOk117crduxtpzdfxJnCWRcPF3sSaWpSiXHua/Q5RtvOa2jWuPebE3e7FW1ZdX1xgimPq/wyvfIvfpeuu3F2U7dRdDFd2SI+2oh71TUBp7Puua/yrf1gunVDE8jf+aaVt0pXGn7so+7Ob5E3dww/qUVcszyNveXyp77t55C0PC93VC1Qiz2ldNwBuZtxM1Ps7n6PMfx2Uz8AAAO/jUccWIkWWvMpl8zv4thhbAHfyuNECAPA4HnUmCgDwSIgWAAAzogUAwIxocSPNWpndtE/dwhGUGWxEqiMOLsZp8NYm4Q5GvZuRx1vVN7brNH9HeAtttIg8xfrMD3vVXpMZ5haUGWyUhQrv2PixTVJ6t3Z+vYo+iys75Mrdr3SX2otVoUxh6ZvQRgv3tVzso5BHu8TyL77BfBPKDDbKwmtdl5PnLk3Cm133bn5r79R1+a+D+BtfDjcPQ5+RNlrIpL2WYPpPmNkvxXujyE+iSEUyQJHzpJdgRLSpSDp0mWGUTVLm5BlZkUi36U2xcr0zZeE5XeNF2nWVRZqcPJckV1E1yZCwxYsG2jm+k3UVdegq0va8QmvLYutc+rXrK1LrX586rbejrFvZS7p3U/nXcf5auUO/P3U9r9S5bAY6pH/u/Yp0uyvPfeRfXH+sUByg33W62kUUf0cX+XXIptP580LKRbi/uW7Ci7Yibc1/Z+lrlPlJFKlIdFQ5TxQJRjSpSHT6iVaUTVLm5BlfUf/clRlslIXdY7UoG69rUqd7Db1d0TVJk7BF8Xbo2jmyk5UV6Sgr6vR8+9W2pqL/mg11tfcrUtJ1SJ8y+Y+yl5S/Kv86qhrPXlOekbLnlbr1Vvodojx3XUX93ZXnPpCgqa3fSOXRasradX9Ho7SvaX1nfh/6sYWITNxXX8J/gmZgcXV+EkXOE12CEVGkIrkBVU6eURWpzl2ZwUadJuhCo5pUGPEWaJqkTtiiezsu0E3lpK5oLFXPa05ZmUTrutrHd8glyX+UlH8dIiLyK3BWp2aZP/0ZqS5vNW0fntGe+/iKVMZkrJpMp8UP1SAjPWbW7Km72bAL/o568l+HrLiY5gs7YzJqYCZKpJyOSpKzP4Gh9fGNNDlPmrHlYIKRWxiXk0fjqnO/i6uSq2gStlz/dnRTOekqGm9sz6uSaF1f+9UdMo7mr0MkC8NEWgnB9Gc08vK+4LLRnPvIikbRBZunmXU65ZIexJ6WN3pl99xC6zTrOas6WJTh4ttPRhmiRfHndxbQr8pPolzS/aIEIx/qqnO/l+uSq/QTttzp7ehXdInRPa9JonVN7XfqkD7lX4cUi13vfQmX7Zn3a85IRl8273Luuo8Ck+k0O/5OD6fZj4Uc0vx00m15vXL0XVjPy08bTUxeJXLpkPTrMUaLc/r8JCNTkShynoiMTDAyQJkZZmSTxtKf+5WUjb+c9l6jpU+Ao3w7lO0c1cn6ipS6FY3veWUSLX3t3Yr0lB3SpU/+M6qX9H8dzWigeM6sP6PLnV02yg4Zde4iut0Hz30wY5WIiJxOsniePM1Oh3+OWTU3paSs/e1+HzPLbyLI3re+/WTUhdFC5ut4M62+eBBOy0lB99WXonA32wx+AJm4271/qgfRXpQXCUbKGL48LgZ315m4W1/C8qBBelGTRlOf+/X6jVcqhsrLsPrAU369pNzvbU1yt3Hr3TC8Hf12ju9kVUVavYpG9/zEfakmWNoV6WrvVaSk7ZCe+bqa31keXzZ2WarsJeW7qfrraB899iUsinVnNJLusul1yPhzF9Xu6nMvEjQ5juOcPYzpm8+sJDzM3IlMnhenJCkmOZRdp6z9GunhPIxN3IX13SejWIMWX8gjJdFKA2c3+6C6Hxuryn9Sl44tgAdGEi3gbogW+EKaqaBismJKEi3gVpiJAgCYMbYAAJgRLQAAZkQLAIAZ0QIAYEa0AACYES0AAGZECwCAGdECAGBGtAAAmBEtAABmRAsAgBnRAgBgRrQAAJgRLQAAZkQLAIAZ0QIAYEa0AACYES0AAGZECwCAGdECAGD23tEi8pwg7Ra+mw+pPQ0cL8q7pQDwqeijRRo4Lcb7HfdEAPjC9NFCRMTexHEcx/Hel3BJMACAb+t/f/786ZYV0sBZySZez3u/Rp4TZiIiYvnx1s0jb1n+XrHL/TpbFiXHl42sVkl7O9WWZ4XKLZsyjTRwinpELH+/dSfja488T15fjsvOlq0jNkdVN6nV+Go7APi0hscWLU8zS06nXPIokNdixBH7EnpRPnG3cRxvbLH8ffnCei6i2LI4UrLazfZxHMcbO1kFqW7LPPLCaTm2KY8okgZOXeifVkPDnTRwVqe6RfXNuq7dt5JdWZGidpEsXHa3TINVUgy39r4lYm+27kTdpHbhxj5vGAB8QqOjxWQ6Lf511/Wn5OeFlR1/n23WotuyuMmKyHxhS3JI9VsWr7akh8TeVB/e3Rc7O/w6e70l2iWW/9r/QF/XXlekq723ZXpIxF7MRUQm7qIInsom5dGuVQgAX8DoaJGfTuUPkVc9+u5OQHUYt3yaWcUPqi0n7nZjJyvHaZ6x56eTlCWO45zNCXWlx0ym016sUFLVrjKfWVX8yqNDZi2eJ5c0CQA+sbHRIv91yGTqTtJgGUo1v7P3y7u9yogtfx8zazbXbzlfl3M50+YZe/XgvVA94eiZV4HISFt733QqZWhYhtIMXEY2CQA+sXHRIg2WYWZv1sVv5Wf2PPrZ+iT+NLP680LKLWvRLrEWz8XPg1tWt/6Ju7DKRx1Gz+M3NdReKeaXmqAwEV2TJtNpMwjxGG8A+AKGvxNV3+eaL/W0vgFl+/4pPL4ovgVkb+L1XLml8ptCxi3f9l2j9pe1Wt+JKo+UR97y+DLQzv6W6m9EKZtUb2pv9rPdT3kdaCcAPD59tEBHHTSaXw+LoWgFAF/HuJkoFE9ZWr8VD3JGPkcHgM+OscUFzmeijP85EAC+DqIFAMCMmSgAgBnRAgBgRrQAAJi9d7RoVtkY+z/nzD4kx1FNWfs9ThMAPtB7R4tiwdrhBTYexDX5nT7RaQLAGO8dLdTSgM/gAPDI9NEiDZwgijzHcbwoLf+VNDibW2n92qzj2tqgVTj4OX2+9k8rx4u65SrKioqmnBe2UsV6kXKsoJxEqueRVolk4bJz1Kb2s9b2a1drdm9tOHRGhuMBwDvRRwsRScLjS7yxs3BV/HtoUlKIFOkmioQPxsxFxoxA7jbeTEPj3VFZkTLHUeQ1uZB8CZ0gfZoNZeNouz6/k5Iyb5LujADgoQxGC8sv7l6W/6O4i0X5/IdvVeEiPST1K73MRZdnBJqv430xxNAPQqRfkYgic1EahJn9Ui3h5L76VnKo8jnVg4z0mFmzp/ZhDIx5k86DaYcqb1JBvct8TfgA8DAGo4XK5HlRhov0kFQ3ZEXmorfLwn9UN0+RyyqyZt0b7dPMOp1ySQ9iT8sb/YULPRnzJtX5nfo0eZMuOCMA+DgXR4sio8MhlfSQlGlHRTSZiy6TBs6ymJQZ/EA9tqLs2MScYkHAyXSaHX+nh9Psx0IOaX469SPKkBF5k8r8TjrqvEljzwgAPs7l0ULEfbGTnbc7lfNU5+rMRZdlBEoDZ3XyDYHizGB2vPnClvIBRpWj+0fx8+kki+fJ0+x0+OeYVXNTSlfmd+pS5k060zmjNOg+SweAD/OWaCHzhZ1l0rottr/7FE6LWfz5upphWR5f6qfcxZbLMCtnZYq7ZxqsZDMmR6mqIqX5Ot5Mq2801U2aWUl4mLkTmTwvTkky/NRi4m59CcvKglRk/sO3yjmj5XHRGlvUE0x1vgvlabrb2D81c1HFMEJ/RvOZJZIdGGwAeARvW4M2DZzd7JJEQBfvgHq8NSKIAsC9vWVskQar+vk27iINHIdQAeCBXDa2KNMBWRffxRhbAMCndlm0AAB8T2+ZiQIAfDdECwCAGdECAGBGtAAAmBEtAABmRAsAgJk5WkQea6PiK+BKBq5hjhYAABAtAABm2v/LnUdeL+GP5e+3rrRfsDdVDlIKKXzMwqd2QcnyWYYGuJA2WtQir1mIG/i8uJKBazATBQAwI1oAAMzMM1EAADC2AACYES0AAGZECwCAGdECAGBGtAAAmJmjRRo4QdotBD4drmTgGuZocVuRp/iLzSPPKfRfu0oaOI7jRd3i23u3ih7QPc79HscEcJVbRIs0KO/1jcvu+hN3G8fx3re6L+D+0uAj1/H+2NoBjHeLaDFfx3Ecx7FvieXv4ziOi/XdPt58Hcfx1u0W3967VfSA7nHu9zgmgKvcIlro1TNM57MK9WDEMARpdm9t2BQO7q6c3Yo8L8pH1d6eMcurX5S7KyuS8yFX9fH5rKjeyovy+iDFMZQVafUqUja+33VFpatEsnB5XlWvnWngBFHkOY7jRWn5r+7cW7WcvdK5GHS1K4+paNKlvQTgOneMFnkUyGsx6oh9CesJh2S1m+3jOI43drLS/42ngRNON+Xup1Wxex55deHwCEYzu5WFy7J230p2F8+BKHZXV5QGzupUDrTiuFj3NPKaIl/C+v6Whcvl8aU4SLIrboWKitRUFSn1u65o+cauR4Rlj6rbmYTHl3hjZ+Gq+PcQ5epzd7dVJRtb7E3xJvUvBl3tymOqmzS+lwBc7Y7RYuKu63vX88LKjr+Ln+1NeU+bL2xJDppwkR6S6k4j4r7Y2eFX+Yp2l1Hq2ttNGm/k7tEusfzXs1t3GoSZ/VIVua++VZ+I5Zc3yueFlR2LwrdXNGBM16naKSJi+cW7Yfk/BoJ0SxqspH4HdRfDKKomXdRLAK53x2jRmlNweuloRETkaaZ9rp2fTpKs6smHVVIUT9ztxi7LH/jpaHrMZDrt3cKtmfI+ay2ey58m7nZwwNSjqUjlgq7TtPMiZ7FizMUw7BZNAnCN+0WLNFiGUs0edCdqCr+P2dBdwK7nTeLWM8/qmfpmGi4Nd70PM1eHwWrcIMW5n732NpqKNMZ23fXt7MaKERfDsOubBOA694sWIlJ97M2jn6qPk9EuaT5Wd0zchTX0VOPSG+UbnE65lDc6ReOHPfdbP1/Y0sytR7tk9JTOEEVFIqbGn3Xd08xqZvk07WxeHSOPvPNYUVBeDN3alVRN6h4dwJ3dL1rMf/hWOfGxPC5aHyfrCaY67WUxSbEMs/K1IC0elvqnZi6q/rZPLZxWk9YqymOO5776UnxXZzfbDH4WVlY0cbf7Vuu9KBeZr+PNtPr+z3Djx1NVpG68rusm7taXsHwhSC9qp/Lco5/1780xdRdDr3blMS9oEoA7MWdDSgPnsLhsNh14QFzJwDXuN7YAAHwdn31skQb196Xa7M24Fl+5+7v5LO18aI99JQOPzhwtAABgJgoAYEa0AACYES0AAGZECwCAGdECAGBGtAAAmJmjReSZliwFPgOuZOAa5mgBAADRAgBgpv2/3Hnk9Ra7tvz91pX2C9XSE2dbU0jhAxU+tQtKll8ufwxgLG20qEVes7Q48HlxJQPXYCYKAGBGtAAAmJlnogAAYGwBADAjWgAAzIgWAAAzogUAwIxoAQAwM0eLNHCCtFsIfDpcycA1zNECAIDbRYs0cEosCw0AX81tokUeec7q5O/jOI7jeCv/RN0tAACf2U2iRfpPmNmbZrk2d+0WP0ReM96oSrwor4chzTRys2VrarkpZMIZAD7ULaJFekjEXsy7xXkUyGsx2oh9Cav5qSxc7mb7OI7jjZ2sgrSYxAqnm3LL06rYMo+8ujAuFqMGAHyQW0QLjYm7rkcbzwsrO/4ufq5HIfOFLaeTSHpI7E0VDtwXOzv8KndLDgwpAOAR3DFaSN7MJPXS0VSyo+SnkySres5plRSvTNztxi7LeW4OAB/rFtHiaWYpRgFpsAylevC9963OyyVrJlLkOGvZlo895uvi9800XBIwAOAD3SJaTNwXW8pHECIiEgXlM+3pdCIikkc/FWOLNFgl1uJZJu7Cau/dN59pYg0A4H2Y81ukgXNYmJ8yp0E9h1QmPW4lSLZ9/xQeX+L1PPKcOnC0kyP3y9slddJl4M1GXskAlG4WLUaKPOf4crOjAePd9koGvptbzEQBAL46ogUAwMw8EwUAAGMLAIAZ0QIAYGaOFuSQwdfAlQxcwxwtPok0aK10CwC4rdtFC7IhAcDXdZto8QDZkObr1gJTAIDbukm00GVDaoYb5RxRGjhBFHmO43hRWv47KkXSYDKlZq3b82lpMiwBwK3cIlposiFFXjPc8CUsb85JeHyJN3YWrop/D1GuTpFkTKbkW8kuyou1zfvL3JJhCQBu6BbRQikNwsx+qYYb7qtvJQcREcsvbtKW/6N9s+6lSDInU2oX9pBhCQBu6W7RQkSs2Rs/vGfHYnBhTqakQ4YlALipW0QLdTak6qZf+H284H5vzeYjkykNIcMSANzMLaKFMhvSfGFL+VxBRKJdYvk/WvvoVCmSREzJlAaRYQkAbuoW0UJkvo7rGR7H8eSHW5RNw2VRFE5bX5lSqXZencoUSfMfvlUWLo+LwbFFMWO1DLPyKEEqIu429k/NXFQxjGh9IcrcJABAzbwG7TvkkCFFEt7BO1zJwBd2m7EFAOBrI1oAAMzMM1EAADC2AACYES0AAGbmaEEOGXwNXMnANczR4s10S8MCAD6dm0WL1qpO5YIayqVhAQCf0W2iRRo4y2Yp8A/JhgQAuKNbRIs82iWWv2/+k2yVDUmtn+NIl6TIUEiOIwB4LzeIFvmvQ2YtRi65pMxxpExSpCwkxxEAfIgbRItG/eyiNWjo0OU4Ui553iskxxEAfIybRoviufbG7pa3qXIcKZMUKQrJcQQAH+QG0WIynUqZXttIm+NImaRIVUiOIwD4ADeIFjJf+1YW/tTOPnUM5jhSJimqCslxBAAfxLyq4MisAGlQzwyJWH68dSPPOQsH9iZez/PIqyagbN8/hceXeD0/29LeFJUpCzvllr/fuhPdlkDbyCsZgNLNogXw4LiSgWvcYiYKAPDVES0AAGbmmSgAABhbAADMiBYAADNztCCHDL4GrmTgGuZoAQDALaJFGpytE975FQDw+d0iWgAAvrq7Ros0qNeLrdYwTwPHi/J6IdpiDBJ5XpTXG6sSHzFYAYAPdcdoEXmrU7XcrC9hfcPPwuXy+FKsQZvsiiiShcvdbB/HcexbyY4cRwDwYG4VLbppJ+ZpEGb2S5X5yH31rTphkeUXN//J88LKjkWhvdkW25pTJAEA3t2tokUr7USdDcmaKQcE1uK5/GnibvWDBnIcAcDjuFW0UKnGDSIiv4/9XBZG5DgCgAdxt2gxX9hSPoEQkWiXWP4P3TDChBxHAPDB7hUtUpmv4800XBbPMsJp9VxitNYXot6yOwDghsxr0JJDBl8DVzJwjXuNLQAAXwnRAgBgZp6JAgCAsQUAwIxoAQAwM0cLcsjga+BKBq5hjhbvIPJY2wMAHtqtokVrcXKWFweAL+c20aK9ODnLiwPA13OLaJFHh8xaPPdX5lBkQ+oVdyagitfKwQnZkADgQdwiWkzchZX1V4lVZ0NKA6c1Djlf/al+bT0nGxIAPJJbRAsRdxvvfSmWECyDhiYbUrRLLP9VtULgryJUnMUPsiEBwGO4TbQoMxvFcRk0imFELxvSXNJjJtOpIlZkYZjI2XQW2ZAA4HHcLFqUJu6rb8npJKpsSKk+U4Xl7/e+hMuz5xNkQwKAB3HraCHy65DJdKrLhvS8sJKV+pF1OZhoPw8vaWMMAOB9mFcVNGcFSANnlTS/2ptq69YLTaHkkbcMy7yrlr/fupPIcw6L8olF5DlhZvn7rfx0qq3OdgfexnwlA9C7RbQAPgOuZOAat5+JAgB8PUQLAICZeSYKAADGFgAAM6IFAMCMaAEAMCNaAADMiBYAADOiBQDAzBwtSJqNr4ErGbiGOVoAAEC0AACYaf8vd3ul2Irl77eutF+o1oY925pCCh+o8KldUCrWPj4vAzBIGy1q7eXEgc+LKxm4BjNRAAAzogUAwMw8EwUAAGMLAIAZ0QIAYEa0AACYES0AAGZECwCAGdECAGD2GaNFGjiO40Xd4g+XBo/YKoM0cIK0WwgAXUPRIo88p+W73VTS4JIFrvPIW538V7cuaDpvuONavdxsqCy8i/kP/7T6fEEOwHsbihbF6mtxZT3vvvpB5us4jrfNffkRRD9D8V/rJYjSwAmnmziO43hjJ6uBqBP9PCyKPm5tqCy8k4m73UzD+9YB4PMzRIuRio/h9Qfi6uNwGlQfkIspmv6n9cgrN24NY4Y+TDefuVtbRZ4X5XVdQ7vrKup8ki9qWSWShcvetippEIrfLFeXR7vE8n8U0XX+w7eyw6+z7VvcbbXffGFLdvytLdQZc0alszekeSPmP3wJ/xk8QwDf3W2ihYhk4XJ5fInjeO9byS4SkchbnaqhiS+hE6RPM0t558sjr/okbhjDTNxtUcV5cRYud7N9HMexbyU7/cdkZUWtcUDsn1ZelBe1bOzW0GqoUZIeEmvx3Pz++5hZi/J2nwbLMJPseKd78cgzKkubNyQ+W4p14i6s5HCnJgL4EgzRYuyHaxGx/OJmNXleWNlR0iDM7JfqluS++lZymEynxa/VICM9ZtbsSURErrtZ2Zvy7ve8UAekRrei9JDYmyoYuC/2wDhA53SS6bS7DnY51FrJJt7YcjppQ1gpDVaJ5XeikrKwa9wZRbvEas2VdUynI5oI4BsbihbFR+z6I+pwwGg+XE/cbbwWEbFm3bvc08w6nXJJD2JPy3v6dDqRibvd2MmqN0Nyc4qK8tNJyhKnmH66WHrs5NppD7Xi9TxXRpMzeeStEntz/jBGWdgx+ozSYzbUCN2wDwAKQ9Gi7XnRmfwZoT398vuYichkOs2Ov9PDafZjIYc0P52qiDJfF1FpMw2Xdw0Yqorseionfsvz8/ms0zdPM0ssf199vP99zPqBsyWPvGUozfb6QqVxZ9Rr5LnfzSgPABTGRYs8+hlm9sJ442qZL2xpHiEUj32Ln08nWTxPnmanwz/HrJqbqhhuardTVTRxF1ayUg2bnmZDT6fbutM4E3dhZeHP8mup0a71VKOYnmp9Y7WKCmfPEZSFJoYzelaWVszDHwDf21B+i8hzqnzGhjzGaeDsZv0t0qCe2amyJkeeE4ofb932HbFVUbOl0tmW1caR5xxfyp3yyFvWv/ToKmqXt0+1KR9slaSBs5LOFvW+Z31XZI22/GoE0+qiguXH26mqUD3iueiM2imre63S9xoADEcLjPepcz5rgj0ANMbNRMHEffUl/HnPBy73UvwndEIFgGFEixsp/kt09azi80j/CafDX7sCAGaiAACjMLYAAJgRLQAAZkQLAIAZ0QIAYEa0AACYES0AAGZECwCAGdECAGBGtAAAmBEtAABmRAsAgNn/BxXZ+i3QJosrAAAAAElFTkSuQmCC" width="527" height="301" class="img_ev3q"></p>
+<ol start="10">
+<li class="">Rerun the DB initialization script to recreate the <code>Custom_Unicorns</code> table:</li>
+</ol>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">drop</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">table</span><span class="token plain"> Capes</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> Glasses</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> Horns</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> Socks</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">source init</span><span class="token operator" style="color:#393A34">/</span><span class="token plain">db</span><span class="token operator" style="color:#393A34">/</span><span class="token plain">queries</span><span class="token punctuation" style="color:#393A34">.</span><span class="token keyword" style="color:#00009f">sql</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-13-33-22-3c9475238a92eec9f002ae0e8d585e4f.png" width="592" height="555" class="img_ev3q"></p>
+<blockquote>
+<p><strong>Expected Error:</strong> You should see the output includes this error message: <code>ERROR 1062 (23000): Duplicate entry &#x27;Placeholder company&#x27; for key &#x27;NAME&#x27;</code>. This is expected because we didn&#x27;t want to overwrite the <code>company</code> table. You can ignore this error message.</p>
+</blockquote>
+<ol start="11">
+<li class="">List the tables again to verify the <code>Custom_Unicorns</code> table is recreated:</li>
+</ol>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">show</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">tables</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<h2><img decoding="async" loading="lazy" src="data:image/png;base64,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" width="290" height="215" class="img_ev3q"></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="module-10a-create-acls">Module 10A: Create ACLs<a href="#module-10a-create-acls" class="hash-link" aria-label="Direct link to Module 10A: Create ACLs" title="Direct link to Module 10A: Create ACLs" translate="no">​</a></h2>
+<p>In this section, we&#x27;ll create an AWS WAF (Web Application Firewall) ACL to provide additional protection for our API.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-a-waf-acl">Create a WAF ACL<a href="#create-a-waf-acl" class="hash-link" aria-label="Direct link to Create a WAF ACL" title="Direct link to Create a WAF ACL" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p>Go to the <a href="https://console.aws.amazon.com/wafv2/homev2" target="_blank" rel="noopener noreferrer" class="">AWS WAF Console</a></p>
+</li>
+<li class="">
+<p>Click on <strong>&quot;Create Web ACL&quot;</strong></p>
+</li>
+<li class="">
+<p>Click on <strong>Create web ACL</strong> on the WAF V2 console
+<img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-38-33-b173ba1bc13ba3f3cad57e0706729092.png" width="1568" height="915" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>In <strong>Step 1</strong> of the ACL creation wizard, fill in:</p>
+</li>
+</ol>
+<ul>
+<li class=""><strong>Web ACL Name</strong>: <code>ProtectUnicorn</code></li>
+<li class=""><strong>CloudWatch metric name</strong>: This should be automatically populated for you</li>
+<li class=""><strong>Region</strong>: Select the AWS region you chose for previous steps of the workshop</li>
+<li class=""><strong>Resource type</strong>: Pick <code>Regional resources (Application Load Balancers, Amazon API Gateway REST APIs, Amazon App Runner services, AWS AppSync GraphQL APIs, Amazon Cognito user pools and AWS Verified Access Instances)</code></li>
+<li class=""><strong>Associated AWS Resources</strong>: Click <strong>Add AWS Resources</strong> button<!-- -->
+<ul>
+<li class="">Select the API Gateway we deployed previously: <code>CustomizeUnicorns - dev</code></li>
+<li class="">Click <strong>Add</strong></li>
+</ul>
+</li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-40-06-3cc423cfa95a8c3b5790fada86ab6df5.png" width="1568" height="915" class="img_ev3q">
+<img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-40-40-07ba281a5d324c1201eb4c2b6e22d76f.png" width="1568" height="915" class="img_ev3q"></p>
+<ol start="5">
+<li class="">
+<p>Leave the <strong>Web request body inspection</strong> section set to defaults (ex. Default 16KB for the body size limit)</p>
+</li>
+<li class="">
+<p>Click <strong>Next</strong></p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="module-10b-create-rules">Module 10B: Create Rules<a href="#module-10b-create-rules" class="hash-link" aria-label="Direct link to Module 10B: Create Rules" title="Direct link to Module 10B: Create Rules" translate="no">​</a></h2>
+<p>In this section, we&#x27;ll create three different WAF rules to protect our API from various types of attacks.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rule-1-restrict-maximum-request-body-size">Rule 1: Restrict Maximum Request Body Size<a href="#rule-1-restrict-maximum-request-body-size" class="hash-link" aria-label="Direct link to Rule 1: Restrict Maximum Request Body Size" title="Direct link to Rule 1: Restrict Maximum Request Body Size" translate="no">​</a></h3>
+<ol>
+<li class="">In the <strong>&quot;Add rules and rule groups&quot;</strong> page, click <strong>&quot;Add rules&quot;</strong> then select <strong>&quot;Add my own rules and rule groups&quot;</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-41-57-0d862cc834a6d6886e7cf85b25bed51e.png" width="1568" height="915" class="img_ev3q"></p>
+<ol start="2">
+<li class="">Configure the rule with the following settings:</li>
+</ol>
+<ul>
+<li class=""><strong>Name</strong>: <code>LargeBodyMatch</code></li>
+<li class=""><strong>Type</strong>: <code>Regular rule</code></li>
+<li class=""><strong>If a request</strong>: Select &quot;matches the statement&quot;</li>
+<li class=""><strong>Inspect</strong>: Body</li>
+<li class=""><strong>Content type</strong>: JSON</li>
+<li class=""><strong>JSON Match type</strong>: All</li>
+<li class=""><strong>How AWS WAF should handle the request if the JSON in the request body is invalid</strong>: None</li>
+<li class=""><strong>Content to inspect</strong>: Full JSON Content</li>
+<li class=""><strong>Match Type</strong>: Size greater than</li>
+<li class=""><strong>Size in bytes</strong>: <code>3000</code></li>
+<li class=""><strong>Text Transformation</strong>: None</li>
+<li class=""><strong>Oversize handling</strong>: Continue - Inspect the contents that are within the size limitations according to the rule inspection criteria</li>
+<li class=""><strong>Then Section</strong>: Ensure <strong>&quot;Block&quot;</strong> is selected</li>
+</ul>
+<ol start="3">
+<li class="">
+<p>Click <strong>Add rule</strong></p>
+</li>
+<li class="">
+<p>You will be returned to the &quot;Add rules and rule groups&quot; page (step 2)</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-48-23-31aac9e3ba81fd0352cf9ca3a5da3789.png" width="1414" height="2608" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rule-2-sql-injection-protection">Rule 2: SQL Injection Protection<a href="#rule-2-sql-injection-protection" class="hash-link" aria-label="Direct link to Rule 2: SQL Injection Protection" title="Direct link to Rule 2: SQL Injection Protection" translate="no">​</a></h3>
+<ol start="5">
+<li class="">
+<p>In the <strong>&quot;Add rules and rule groups&quot;</strong> page, click <strong>&quot;Add rules&quot;</strong> then select <strong>&quot;Add my own rules and rule groups&quot;</strong></p>
+</li>
+<li class="">
+<p>Configure the rule:</p>
+</li>
+</ol>
+<ul>
+<li class=""><strong>Name</strong>: <code>SQLinjectionMatch</code></li>
+<li class=""><strong>Type</strong>: <code>Regular Rule</code></li>
+<li class=""><strong>If a request</strong>: Select &quot;matches at least one of the statements (OR)&quot;</li>
+</ul>
+<ol start="7">
+<li class="">Add <strong>Statement 1</strong> (Inspect Body - JSON):</li>
+</ol>
+<ul>
+<li class=""><strong>Inspect</strong>: Body</li>
+<li class=""><strong>Content</strong>: JSON</li>
+<li class=""><strong>Match type</strong>: Contains SQL Injection attacks</li>
+<li class=""><strong>Oversize handling</strong>: Continue - Inspect the contents that are within the size limitations according to the rule inspection criteria</li>
+</ul>
+<ol start="8">
+<li class="">
+<p>Click <strong>&quot;Add another statement&quot;</strong></p>
+</li>
+<li class="">
+<p>Add <strong>Statement 2</strong> (Inspect URI Path):</p>
+</li>
+</ol>
+<ul>
+<li class=""><strong>Inspect</strong>: URI path</li>
+<li class=""><strong>Match type</strong>: Contains SQL Injection attacks</li>
+<li class=""><strong>Text transformation</strong>: URL Decode</li>
+</ul>
+<ol start="10">
+<li class="">
+<p>Click <strong>&quot;Add another statement&quot;</strong></p>
+</li>
+<li class="">
+<p>Add <strong>Statement 3</strong> (Inspect Body - URL Decode):</p>
+</li>
+</ol>
+<ul>
+<li class=""><strong>Inspect</strong>: Body</li>
+<li class=""><strong>Match type</strong>: Contains SQL Injection attacks</li>
+<li class=""><strong>Text transformation</strong>: URL Decode</li>
+<li class=""><strong>Oversize handling</strong>: Continue - Inspect the contents that are within the size limitations according to the rule inspection criteria</li>
+</ul>
+<ol start="12">
+<li class="">
+<p>Click <strong>&quot;Add another statement&quot;</strong></p>
+</li>
+<li class="">
+<p>Add <strong>Statement 4</strong> (Inspect Query String):</p>
+</li>
+</ol>
+<ul>
+<li class=""><strong>Inspect</strong>: Query String</li>
+<li class=""><strong>Match type</strong>: Contains SQL Injection attacks</li>
+<li class=""><strong>Text transformation</strong>: URL Decode</li>
+</ul>
+<ol start="14">
+<li class="">Click <strong>Add Rule</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-55-42-2b8e7933e5ee5faa8f5cd7f9a3e843fc.png" width="1414" height="5593" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rule-3-rate-based-rule-request-flood-prevention">Rule 3: Rate-Based Rule (Request Flood Prevention)<a href="#rule-3-rate-based-rule-request-flood-prevention" class="hash-link" aria-label="Direct link to Rule 3: Rate-Based Rule (Request Flood Prevention)" title="Direct link to Rule 3: Rate-Based Rule (Request Flood Prevention)" translate="no">​</a></h3>
+<ol start="15">
+<li class="">In the <strong>&quot;Add rules and rule groups&quot;</strong> page, click <strong>&quot;Add rules&quot;</strong> then select <strong>&quot;Add my own rules and rule groups&quot;</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-56-13-542eb0e4874ddb6400efd65d3d7c1215.png" width="1568" height="915" class="img_ev3q"></p>
+<ol start="16">
+<li class="">Configure the rate-based rule:</li>
+</ol>
+<ul>
+<li class=""><strong>Name</strong>: <code>RequestFloodRule</code></li>
+<li class=""><strong>Rule type</strong>: <code>Rate-based rule</code></li>
+<li class=""><strong>Rate limit</strong>: <code>2000</code></li>
+<li class="">Keep everything else as defaults</li>
+</ul>
+<ol start="17">
+<li class="">Click <strong>Add Rule</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-57-02-5300fa2e8068d400330c5634252d1f0f.png" width="1414" height="2510" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="finalize-waf-configuration">Finalize WAF Configuration<a href="#finalize-waf-configuration" class="hash-link" aria-label="Direct link to Finalize WAF Configuration" title="Direct link to Finalize WAF Configuration" translate="no">​</a></h3>
+<ol start="18">
+<li class="">
+<p>You should now see 3 rules similar to the screenshot below</p>
+</li>
+<li class="">
+<p>Ensure all three rules have the <strong>Action</strong> of <code>Block</code></p>
+</li>
+<li class="">
+<p>Under <strong>&quot;Default web ACL action for requests that don&#x27;t match any rules&quot;</strong>, select <strong><code>Allow</code></strong> for <strong>Default action</strong></p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-58-08-1ac0a1223dbabe2db04d0704f11c0301.png" width="1414" height="1450" class="img_ev3q"></p>
+<ol start="21">
+<li class="">
+<p>Click <strong>Next</strong></p>
+</li>
+<li class="">
+<p>Keep all defaults under the <strong>&quot;Set Rule Priority&quot;</strong> section, then click <strong>Next</strong> again
+<img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-58-40-0394dac42366f1e052f93bdb1e9b68e2.png" width="1047" height="455" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>In the <strong>&quot;Configure Metrics&quot;</strong> page, use the defaults and click <strong>Next</strong>
+<img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-59-06-b87d0c070e81d788dc6488e379debe3b.png" width="1018" height="794" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>Finally, on the <strong>&quot;Review and create web ACL&quot;</strong> page, review the selections and click <strong>Create web ACL</strong></p>
+</li>
+<li class="">
+<p>Allow a few minutes for the WAF Web ACL to be created</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-14-59-39-a3306f956dde8c220d02a84732624ff3.png" width="1414" height="2582" class="img_ev3q">
+<img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-01-49-ac84c029c07bad83ad54c90aa5cd14f6.png" width="1568" height="915" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-waf-association">Verify WAF Association<a href="#verify-waf-association" class="hash-link" aria-label="Direct link to Verify WAF Association" title="Direct link to Verify WAF Association" translate="no">​</a></h3>
+<ol start="26">
+<li class="">
+<p>Navigate to your <strong>API Gateway</strong> → <strong>API Stages</strong> to confirm your WAF Web ACL has been associated with your API Gateway stage</p>
+</li>
+<li class="">
+<p>If your ACL is not associated, edit the stage details and select your Web ACL under the <strong>Web application firewall (AWS WAF)</strong> section</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-03-18-85a93cabe079ecd6f617b3bebc8bedc1.png" width="1574" height="915" class="img_ev3q"></p>
+<p><strong>Success!</strong> You have now added a WAF to protect your API Gateway stage!</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="module-10c-test-requests">Module 10C: Test Requests<a href="#module-10c-test-requests" class="hash-link" aria-label="Direct link to Module 10C: Test Requests" title="Direct link to Module 10C: Test Requests" translate="no">​</a></h2>
+<p>Now that we have WAF rules configured, let&#x27;s test to ensure they&#x27;re working correctly to block malicious requests while allowing legitimate traffic.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="test-1-verify-valid-requests-pass-through">Test 1: Verify Valid Requests Pass Through<a href="#test-1-verify-valid-requests-pass-through" class="hash-link" aria-label="Direct link to Test 1: Verify Valid Requests Pass Through" title="Direct link to Test 1: Verify Valid Requests Pass Through" translate="no">​</a></h3>
+<ol>
+<li class="">First, send some valid requests using the <strong>API Client</strong> to make sure well-behaving requests are getting through</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-05-15-0944e185b5887d89d4421ba79a331e66.png" width="715" height="549" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="test-2-test-large-request-body-block">Test 2: Test Large Request Body Block<a href="#test-2-test-large-request-body-block" class="hash-link" aria-label="Direct link to Test 2: Test Large Request Body Block" title="Direct link to Test 2: Test Large Request Body Block" translate="no">​</a></h3>
+<ol start="2">
+<li class="">
+<p>Switch to the <strong>API Client</strong> and click the <strong>Module 10C: Test Requests</strong> tab to expand the section</p>
+</li>
+<li class="">
+<p>Click the <strong>Get Access Token</strong> button to retrieve a fresh token
+<img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-06-31-700c2065d6d4cbf1c64a24bb8e581156.png" width="710" height="613" class="img_ev3q"></p>
+</li>
+<li class="">
+<p>Copy the JSON data below into the <strong>Body JSON</strong> textbox and click <strong>Send</strong>:</p>
+</li>
+</ol>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;name&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;my custom unicorn&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;imageUrl&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;https://abc.efg.com/YA3K7yOwfmKhD1SdZ0MDB9C97RnJ3vb74WmoPOGJb2crs04okE2TcghSVgMWBLZ0c7rYZA5sjPWdfU7GJsRnEexwqgVfq2c94jEYdBCyxrZA3bZY36MiBnQZDrMyMMq1I8WJ7U4otss7mNWyQON0suZFXGCV7g7Z15dh14FIemSrkw3MzBLjsoAGTaz4VW1Ftljt5FCyJG3GtCSRvIoBkJ1YNiqKDRuiyFud7RgxBTXJEj3VvpTtT5CfWK...&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;sock&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;1&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;horn&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;2&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;glasses&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;3&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;cape&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token string" style="color:#e3116c">&quot;2&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<ol start="5">
+<li class="">You should see your request getting blocked with a <strong>403 Forbidden</strong> response</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> It may take a minute for WAF changes to propagate. If your test request went through successfully, retry a few times until you start receiving 403 errors as WAF takes effect.</p>
+</blockquote>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-47-07-57d477f7cc55da8bd5152289d25cca87.png" width="729" height="740" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="test-3-test-sql-injection-block">Test 3: Test SQL Injection Block<a href="#test-3-test-sql-injection-block" class="hash-link" aria-label="Direct link to Test 3: Test SQL Injection Block" title="Direct link to Test 3: Test SQL Injection Block" translate="no">​</a></h3>
+<ol start="6">
+<li class="">
+<p>Next, let&#x27;s try a request with a SQL injection attack in the request URI for a <strong>GET /customizations/{id}</strong> request</p>
+</li>
+<li class="">
+<p>In the <strong>API Client</strong>, choose the <strong>GET Custom_Unicorn</strong> request</p>
+</li>
+<li class="">
+<p>Replace the URL with:</p>
+</li>
+</ol>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">{{base_url}}/customizations/1; drop table Custom_Unicorns;</span><br></span></code></pre></div></div>
+<ol start="9">
+<li class="">
+<p>Click <strong>Send</strong></p>
+</li>
+<li class="">
+<p>You should see your request getting blocked with a <strong>403 Forbidden</strong> or an <strong>Error</strong> response</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-30-35-6210ee185f7482ecafda87ffdd77c869.png" width="724" height="447" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="view-waf-metrics-and-logs">View WAF Metrics and Logs<a href="#view-waf-metrics-and-logs" class="hash-link" aria-label="Direct link to View WAF Metrics and Logs" title="Direct link to View WAF Metrics and Logs" translate="no">​</a></h3>
+<ol start="11">
+<li class="">
+<p>The WAF console gives you metrics and sample requests that are allowed/denied by the WAF rules</p>
+</li>
+<li class="">
+<p>You can find this information by going to the <strong>WAF console</strong>, under <strong>Web ACLs</strong>, <strong>Protection Packs</strong>, and select the WAF we just created</p>
+</li>
+<li class="">
+<p>Select <strong>View dashboard, logs, and sampled requests</strong> on the right side of the screen</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> It can take a few minutes before the metrics and sample requests start showing up in the WAF console.</p>
+</blockquote>
+<p><img decoding="async" loading="lazy" src="/assets/images/2026-01-29-15-33-10-15eede825fa3bc1e36e76f5d1abd0d3d.png" width="1910" height="915" class="img_ev3q"></p>
+<hr></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/khanhquoc4114/serverless-security-workshop/tree/main/packages/create-docusaurus/templates/shared/docs/module-10/module-10-waf.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/module-09/module-9-usage-plans"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Module 9: Usage Plans</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/module-12/module-12-xray"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Module 12: X-Ray</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#optional-module-10-attack-your-api-with-sql-injection" class="table-of-contents__link toc-highlight">(Optional) Module 10: Attack Your API with SQL Injection!</a><ul><li><a href="#perform-sql-injection-attack" class="table-of-contents__link toc-highlight">Perform SQL Injection Attack</a></li></ul></li><li><a href="#module-10a-create-acls" class="table-of-contents__link toc-highlight">Module 10A: Create ACLs</a><ul><li><a href="#create-a-waf-acl" class="table-of-contents__link toc-highlight">Create a WAF ACL</a></li></ul></li><li><a href="#module-10b-create-rules" class="table-of-contents__link toc-highlight">Module 10B: Create Rules</a><ul><li><a href="#rule-1-restrict-maximum-request-body-size" class="table-of-contents__link toc-highlight">Rule 1: Restrict Maximum Request Body Size</a></li><li><a href="#rule-2-sql-injection-protection" class="table-of-contents__link toc-highlight">Rule 2: SQL Injection Protection</a></li><li><a href="#rule-3-rate-based-rule-request-flood-prevention" class="table-of-contents__link toc-highlight">Rule 3: Rate-Based Rule (Request Flood Prevention)</a></li><li><a href="#finalize-waf-configuration" class="table-of-contents__link toc-highlight">Finalize WAF Configuration</a></li><li><a href="#verify-waf-association" class="table-of-contents__link toc-highlight">Verify WAF Association</a></li></ul></li><li><a href="#module-10c-test-requests" class="table-of-contents__link toc-highlight">Module 10C: Test Requests</a><ul><li><a href="#test-1-verify-valid-requests-pass-through" class="table-of-contents__link toc-highlight">Test 1: Verify Valid Requests Pass Through</a></li><li><a href="#test-2-test-large-request-body-block" class="table-of-contents__link toc-highlight">Test 2: Test Large Request Body Block</a></li><li><a href="#test-3-test-sql-injection-block" class="table-of-contents__link toc-highlight">Test 3: Test SQL Injection Block</a></li><li><a href="#view-waf-metrics-and-logs" class="table-of-contents__link toc-highlight">View WAF Metrics and Logs</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Built with ❤️ at AWS. <br> Copyright © 2026 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
