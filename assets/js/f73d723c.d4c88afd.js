@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocusaurus=globalThis.webpackChunkdocusaurus||[]).push([[777],{3811(s){s.exports=JSON.parse('{"metadata":{"permalink":"/serverless-security-workshop/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

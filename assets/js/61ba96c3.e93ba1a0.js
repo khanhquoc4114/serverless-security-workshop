@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocusaurus=globalThis.webpackChunkdocusaurus||[]).push([[644],{7705(s){s.exports=JSON.parse('{"tags":[{"label":"Docusaurus","permalink":"/serverless-security-workshop/blog/tags/docusaurus","description":"Docusaurus tag description","count":1}]}')}}]);

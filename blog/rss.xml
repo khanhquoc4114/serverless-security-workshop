@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Serverless Security Workshop Blog</title>
-        <link>https://your-docusaurus-site.example.com/blog</link>
+        <link>https://khanhquoc4114.github.io/serverless-security-workshop/blog</link>
         <description>Serverless Security Workshop Blog</description>
         <lastBuildDate>Sun, 01 Aug 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[MDX Blog Post]]></title>
-            <link>https://your-docusaurus-site.example.com/blog/mdx-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/blog/mdx-blog-post</guid>
+            <link>https://khanhquoc4114.github.io/serverless-security-workshop/blog/mdx-blog-post</link>
+            <guid>https://khanhquoc4114.github.io/serverless-security-workshop/blog/mdx-blog-post</guid>
             <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Blog posts support Docusaurus Markdown features, such as MDX.]]></description>
             <content:encoded><![CDATA[<p>Blog posts support <a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noopener noreferrer" class="">Docusaurus Markdown features</a>, such as <a href="https://mdxjs.com/" target="_blank" rel="noopener noreferrer" class="">MDX</a>.</p>

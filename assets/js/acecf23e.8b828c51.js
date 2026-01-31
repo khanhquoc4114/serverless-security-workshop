@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocusaurus=globalThis.webpackChunkdocusaurus||[]).push([[903],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/serverless-security-workshop/blog","blogTitle":"Blog","authorsListPath":"/serverless-security-workshop/blog/authors"}')}}]);
