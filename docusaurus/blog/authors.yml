@@ -1,0 +1,13 @@
+pham_nguyen_hai_anh:
+  name: Phạm Nguyễn Hải Anh
+  title: Security Specialist
+  # url: https://example.com
+  # image_url: https://via.placeholder.com/150
+  page: true
+
+nguyen_dang_khanh_quoc:
+  name: Nguyễn Đặng Khánh Quốc
+  title: Cloud Architect
+  # url: https://example.com
+  # image_url: https://via.placeholder.com/150
+  page: true
